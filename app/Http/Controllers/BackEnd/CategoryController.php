@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('back-end.categories.index');
     }
 
     /**
@@ -35,7 +36,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'name' => $request->category_name
+        ]);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'You added new category!'
+        ]);
     }
 
     /**
@@ -69,7 +77,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Category::where('id', $id)->update([
+            'name' => $request->category_name
+        ]);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'You update category!'
+        ]);
     }
 
     /**
@@ -80,6 +95,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'You delete category!'
+        ]);
     }
 }

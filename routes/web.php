@@ -13,10 +13,13 @@
 
 # FrontEnd Routes
 Route::prefix('/')->group(function () {
+
     # Home
     Route::get('/', 'FrontEnd\HomeController@index')->name('home');
+
     # Blog
     Route::resource('blogs', 'FrontEnd\BlogController');
+
     # Category
     Route::resource('categories', 'FrontEnd\CategoryController');
 });
@@ -34,11 +37,26 @@ Route::group(['prefix' => '/admin', 'as'=>'admin.'], function () {
     Route::post('register', 'BackEnd\Auth\RegisterController@register')->name('register');
 
     Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
+
         # Dashboard
-        Route::get('/', 'BackEnd\HomeController@index');
+        Route::get('/home', 'BackEnd\HomeController@index')->name('home');
+
         # Blog
         Route::resource('blogs', 'BackEnd\BlogController');
+
         # Category
         Route::resource('categories', 'BackEnd\CategoryController');
+    });
+});
+
+# Ajax
+Route::group(['prefix' => '/ajax', 'as' => 'ajax.'], function () {
+
+    # Category
+    Route::get('category/by/id', 'Ajax\CategoryController@getCategoryById')->name('get.category.by.id');
+
+    # DataTables
+    Route::group(['prefix' => '/datatables', 'as' => 'datatables.'], function () {
+        Route::get('categories', 'Ajax\DataTablesController@categoriesList')->name('categories.list');
     });
 });
