@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+
 
 class BlogController extends Controller
 {
@@ -14,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        return view('back-end.blogs.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('back-end.blogs.create');
     }
 
     /**
@@ -35,7 +38,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+//        $blog = new Blog;
+//        $blog->title = $request->title;
+//        $blog->content = $request->body;
+//        $blog->date_post = \Carbon\Carbon::now();
+//
+//        $image = $request->file('image');
+//
+//        // TODO:: Crate slug
+//        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+//        $blog->cover = $new_name;
+//        $image->move(public_path('images/uploads'), $new_name);
+//
+//        $blog->save();
+
+        return view('back-end.blogs.index');
     }
 
     /**
@@ -80,6 +98,11 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Blog::destroy($id);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'You delete category!'
+        ]);
     }
 }

@@ -17,11 +17,11 @@ Route::prefix('/')->group(function () {
     # Home
     Route::get('/', 'FrontEnd\HomeController@index')->name('home');
 
-    # Blog
-    Route::resource('blogs', 'FrontEnd\BlogController');
-
     # Category
     Route::resource('categories', 'FrontEnd\CategoryController');
+
+    # Blog
+    Route::resource('blogs', 'FrontEnd\BlogController');
 });
 
 
@@ -41,11 +41,11 @@ Route::group(['prefix' => '/admin', 'as'=>'admin.'], function () {
         # Dashboard
         Route::get('/home', 'BackEnd\HomeController@index')->name('home');
 
-        # Blog
-        Route::resource('blogs', 'BackEnd\BlogController');
-
         # Category
         Route::resource('categories', 'BackEnd\CategoryController');
+
+        # Blog
+        Route::resource('blogs', 'BackEnd\BlogController');
     });
 });
 
@@ -58,5 +58,6 @@ Route::group(['prefix' => '/ajax', 'as' => 'ajax.'], function () {
     # DataTables
     Route::group(['prefix' => '/datatables', 'as' => 'datatables.'], function () {
         Route::get('categories', 'Ajax\DataTablesController@categoriesList')->name('categories.list');
+        Route::get('blogs', 'Ajax\DataTablesController@blogsList')->name('blogs.list');
     });
 });
