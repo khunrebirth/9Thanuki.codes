@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Blog;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,9 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('back-end.blogs.create');
+        $categories = Category::all();
+
+        return view('back-end.blogs.create', compact('categories'));
     }
 
     /**
@@ -38,20 +41,20 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-//        $blog = new Blog;
-//        $blog->title = $request->title;
-//        $blog->content = $request->body;
-//        $blog->date_post = \Carbon\Carbon::now();
-//
-//        $image = $request->file('image');
-//
-//        // TODO:: Crate slug
-//        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-//        $blog->cover = $new_name;
-//        $image->move(public_path('images/uploads'), $new_name);
-//
-//        $blog->save();
+        $blog = new Blog;
+        $blog->title = $request->title;
+        $blog->content = $request->body;
+        $blog->date_post = \Carbon\Carbon::now();
+        $blog->category_id = $request->category;
+
+        $image = $request->file('image');
+
+        // TODO:: Crate slug
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $blog->cover = $new_name;
+        $image->move(public_path('images/uploads'), $new_name);
+
+        $blog->save();
 
         return view('back-end.blogs.index');
     }
@@ -75,7 +78,10 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $blog = Blog::find($id);
+
+        return view('back-end.blogs.edit', compact('blog', 'categories'));
     }
 
     /**

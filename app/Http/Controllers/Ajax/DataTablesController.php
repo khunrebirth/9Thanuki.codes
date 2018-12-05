@@ -141,7 +141,7 @@ class DataTablesController extends Controller
             $data_blog['content'] = str_limit($blog->content, 40);
             $data_blog['category'] = $blog->category_id;
             $data_blog['date_post'] = $blog->date_post;
-            $data_blog['action'] = '<a class="btn btn-primary no-margin" style="color: #fff;" onclick="editBlog(' . $blog->id . ',' . "'" . route('admin.blogs.update', $blog->id) . "'" . ')">
+            $data_blog['action'] = '<a class="btn btn-primary no-margin" style="color: #fff;" href="' . route('admin.blogs.edit', $blog->id) . '">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     <a class="btn btn-danger no-margin" style="color: #fff;"" onclick="deleteBlog(' . $blog->id . ',' . "'" . route('admin.blogs.destroy', $blog->id) . "'" . ')">

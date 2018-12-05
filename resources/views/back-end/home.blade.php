@@ -47,43 +47,10 @@
                     </blockquote>
                     <blockquote class="blockquote mb-4 border-left pl-3 pt-2 pb-2">
                         <p class="mb-2">
-                            fuck off
-                        </p>
-                        <footer class="blockquote-footer">
-                            <strong>admin</strong>
-                            <em>at 2018-11-19 06:34:34</em>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="blockquote mb-4 border-left pl-3 pt-2 pb-2">
-                        <p class="mb-2">
-                            fdg </p>
-                        <footer class="blockquote-footer">
-                            <strong>admin</strong>
-                            <em>at 2018-11-17 11:08:39</em>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="blockquote mb-4 border-left pl-3 pt-2 pb-2">
-                        <p class="mb-2">
                             Good </p>
                         <footer class="blockquote-footer">
                             <strong>admin</strong>
                             <em>at 2018-11-16 09:13:57</em>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="blockquote mb-4 border-left pl-3 pt-2 pb-2">
-                        <p class="mb-2">
-                            ef </p>
-                        <footer class="blockquote-footer">
-                            <strong>admin</strong>
-                            <em>at 2018-11-16 05:12:35</em>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="blockquote mb-4 border-left pl-3 pt-2 pb-2">
-                        <p class="mb-2">
-                            aaSAsaSAsaSas </p>
-                        <footer class="blockquote-footer">
-                            <strong>admin</strong>
-                            <em>at 2018-11-15 18:38:14</em>
                         </footer>
                     </blockquote>
                 </div>

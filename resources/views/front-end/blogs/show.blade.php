@@ -50,7 +50,7 @@
                             {{--{{ $blog->content }}--}}
                         {{--</div>--}}
                     {{--</article>--}}
-                    {{ $blog->content }}
+                    {!! $blog->content !!}
                 </div>
             </div>
         </div>

@@ -28,18 +28,26 @@
                     <div class="form-group">
                         <label>Title</label>
                         <input type="hidden" value="">
-                        <input  type="text" class="form-control">
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" name="category">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <input id="blogImage" name="blog_image" type="file" class="form-control">
+                        <input id="blogImage" name="image" type="file" class="form-control">
                     </div>
                     <div class="form-group">
                         {{--image in--}}
                     </div>
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea id="blogContent" type="text" class="form-control"></textarea>
+                        <textarea id="blogContent" type="text" class="form-control" name="body"></textarea>
                     </div>
 
                     <input type="submit" name="button" class="btn btn-primary" value="Add">
@@ -50,9 +58,10 @@
 @endsection
 
 @push('scripts')
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script>
-        $(document).ready(function () {
-
-        });
+        $('#blogContent').ckeditor();
+        // $('.textarea').ckeditor(); // if class is prefered.
     </script>
 @endpush
