@@ -139,7 +139,7 @@ class DataTablesController extends Controller
         foreach ($builder->get() as $blog) {
             $data_blog['title'] = $blog->title;
             $data_blog['content'] = str_limit($blog->content, 40);
-            $data_blog['category'] = $blog->category_id;
+            $data_blog['category'] = $blog->category->name;
             $data_blog['date_post'] = $blog->date_post;
             $data_blog['action'] = '<a class="btn btn-primary no-margin" style="color: #fff;" href="' . route('admin.blogs.edit', $blog->id) . '">
                                         <i class="fa fa-edit"></i>
